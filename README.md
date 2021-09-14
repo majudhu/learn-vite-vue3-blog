@@ -1,4 +1,5 @@
 [live on github pages](https://majudhu.github.io/learn-vite-vue3-blog/)
+
 [non vite version, vue-cli](https://github.com/majudhu/learn-vue3-blog)
 
 # Vue 3 + Vite
