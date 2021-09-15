@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: |
-        COMMIT=`git log -1 --format=format:%s`
-        ORIGIN=`git remote get-url origin`
+        echo "commit_msg=`git log -1 --format=format:%s` >> $GITHUB_ENV
+        echo "origin_url=`git remote get-url origin`" >> $GITHUB_ENV
         npm ci
         npm run build
         cd dist
@@ -20,8 +20,8 @@ jobs:
         git config user.email github-actions@github.com
         git init
         git add -A
-        git commit -m "$COMMIT"
-        git push -f "ORIGIN" main:gh-pages
+        git commit -m "${{ env.commit_msg }}"
+        git push -f "${{ env.origin_url }}" main:gh-pages
 
       # - uses: actions/upload-artifact@v2
       #   with: { name: static-build, path: docs }
