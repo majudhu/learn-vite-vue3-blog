@@ -1,4 +1,4 @@
-name: vite static build
+name: vite static build and push to github pages
 
 on:
   workflow_dispatch:
