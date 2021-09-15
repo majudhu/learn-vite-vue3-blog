@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: |
-        echo "commit_msg=`git log -1 --format=format:%s` >> $GITHUB_ENV
+        echo "commit_msg=`git log -1 --format=format:%s`" >> $GITHUB_ENV
         echo "origin_url=`git remote get-url origin`" >> $GITHUB_ENV
         npm ci
         npm run build
