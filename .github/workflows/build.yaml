@@ -18,12 +18,12 @@ jobs:
           npm ci
           npm run build
           cd dist
-          git init
+          git init --initial-branch=gh-pages
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add -A
           git commit -m "${{ env.commit_msg }}"
-          git push -f "${{ env.origin_url }}" main:gh-pages
+          git push -f "${{ env.origin_url }}"
 
       # - uses: actions/upload-artifact@v2
       #   with: { name: static-build, path: docs }
