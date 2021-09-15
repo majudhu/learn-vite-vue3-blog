@@ -1,7 +1,8 @@
 name: vite static build
 
-on: workflow_dispatch
-#  push: { branches: [main] }
+on:
+  - workflow_dispatch
+  - push: { branches: [main] }
 
 jobs:
   build:
@@ -9,7 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: npm ci && npm run build
+      - run: |
+        COMMIT=`git log -1 --format=format:%s`
+        ORIGIN=`git remote get-url origin`
+        npm ci
+        npm run build
+        cd dist
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git init
+        git add -A
+        git commit -m "$COMMIT"
+        git push -f "ORIGIN" main:gh-pages
 
-      - uses: actions/upload-artifact@v2
-        with: { name: static-build, path: docs }
+      # - uses: actions/upload-artifact@v2
+      #   with: { name: static-build, path: docs }
