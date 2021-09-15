@@ -13,6 +13,7 @@ jobs:
       - run: |
           echo "commit_msg=`git log -1 --format=format:%s`" >> $GITHUB_ENV
           echo "origin_url=`git remote get-url origin`" >> $GITHUB_ENV
+          echo "auth_token=`git config http.https://github.com/.extraheader`" >> $GITHUB_ENV
 
       - run: |
           npm ci
@@ -21,6 +22,7 @@ jobs:
           git init --initial-branch=gh-pages
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git config http.https://github.com/.extraheader "${{ env.auth_token }}"
           git add -A
           git commit -m "${{ env.commit_msg }}"
           git push -f "${{ env.origin_url }}"
