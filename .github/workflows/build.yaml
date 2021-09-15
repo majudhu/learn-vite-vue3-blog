@@ -13,6 +13,7 @@ jobs:
       - run: |
           echo "commit_msg=`git log -1 --format=format:%s`" >> $GITHUB_ENV
           echo "origin_url=`git remote get-url origin`" >> $GITHUB_ENV
+          echo ${{ env.commit_msg }} ${{ env.origin_url }}
           npm ci
           npm run build
           cd dist
