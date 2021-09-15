@@ -1,32 +1,37 @@
 <template>
-  <form @submit.prevent="submitForm">
-    <h2>Add a blog post</h2>
-    <div>
-      <label>
+  <form @submit.prevent="submitForm" class="text-center bg-gray-200 p-3">
+    <h2 class="text-2xl text-center text-gray-700">Add a blog post</h2>
+    <div class="border py-2">
+      <label class="flex text-gray-600">
         Title:
-        <input v-model="formData.title" required />
+        <input class="ml-2 flex-grow bg-white" v-model="formData.title" required />
       </label>
       <span v-if="titleNotUnique" class="text-red">Title not unique</span>
     </div>
-    <div>
-      <label>
+    <div class="border py-2">
+      <label class="flex text-gray-600">
         Text:
-        <input v-model="formData.text" required />
+        <input class="ml-2 flex-grow bg-white" v-model="formData.text" required />
       </label>
     </div>
-    <div>
-      <label>
+    <div class="border py-2">
+      <label class="flex text-gray-600">
         Image:
-        <input v-model="formData.image" />
+        <input class="ml-2 flex-grow bg-white" v-model="formData.image" />
       </label>
     </div>
-    <div>
-      <label>
+    <div class="border py-2">
+      <label class="flex text-gray-600">
         URL:
-        <input v-model="formData.url" />
+        <input class="ml-2 flex-grow bg-white" v-model="formData.url" />
       </label>
     </div>
-    <button type="submit" :disabled="titleNotUnique">Add post</button>
+    <button
+      class="border border-2 bg-white font-bold my-2 py-1 px-4 font-md"
+      :class="{ 'opacity-40': titleNotUnique }"
+      type="submit"
+      :disabled="titleNotUnique"
+    >ADD POST</button>
   </form>
 </template>
 

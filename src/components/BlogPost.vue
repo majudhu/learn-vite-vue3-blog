@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h2>{{ title }}</h2>
-    <img :src="image" />
-    <p>
+    <h2 class="text-xl my-3">{{ title }}</h2>
+    <img class="w-full" :src="image" />
+    <p class="text-gray-700 my-3">
       {{ text }}
-      <a v-if="!!url" :href="url">Open</a>
+      <a class="float-right text-gray-500 border p-1" v-if="!!url" :href="url">Open</a>
     </p>
-    <hr />
+    <hr class="my-8" />
   </div>
 </template>
 

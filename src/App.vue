@@ -1,16 +1,18 @@
 <template>
-  <h1>Welcome to Learn Vue 3 Blog</h1>
+  <div class="max-w-md mx-auto">
+    <h1 class="text-3xl font-bold my-4">Welcome to Learn Vue 3 Blog</h1>
 
-  <BlogPost
-    v-for="p in posts"
-    :key="p.title"
-    :title="p.title"
-    :text="p.text"
-    :image="p.image"
-    :url="p.url"
-  />
+    <BlogPost
+      v-for="p in posts"
+      :key="p.title"
+      :title="p.title"
+      :text="p.text"
+      :image="p.image"
+      :url="p.url"
+    />
 
-  <BlogPostCreateForm :posts="posts" @addPost="addPost" />
+    <BlogPostCreateForm :posts="posts" @addPost="addPost" />
+  </div>
 </template>
 
 <script setup>
@@ -25,7 +27,7 @@ const addPost = (title, text, image, url) =>
 </script>
 
 <style>
-body {
-  font-family: sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 </style>
