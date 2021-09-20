@@ -6,7 +6,7 @@
         Title:
         <input class="ml-2 flex-grow bg-white" v-model="formData.title" required />
       </label>
-      <span v-if="titleNotUnique" class="text-red">Title not unique</span>
+      <span v-if="titleNotUnique" class="text-red-500">Title not unique</span>
     </div>
     <div class="border py-2">
       <label class="flex text-gray-600">
@@ -54,9 +54,3 @@ function submitForm() {
   formData.title = formData.text = formData.image = formData.url = "";
 }
 </script>
-
-<style>
-.text-red {
-  color: red;
-}
-</style>

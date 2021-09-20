@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import "tailwindcss/tailwind.css"
 import { reactive } from "vue";
 import SAMPLE_POSTS from "./assets/sample_posts.json";
 import BlogPost from "./components/BlogPost.vue";
@@ -25,9 +26,3 @@ const posts = reactive(SAMPLE_POSTS);
 const addPost = (title, text, image, url) =>
   posts.push({ title, text, image, url });
 </script>
-
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-</style>
